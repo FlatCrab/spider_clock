@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { calcMirror } from "../../../util/styleutil";
 
 interface SpiderLegProps {
     colour: string,
@@ -13,16 +13,12 @@ const SpiderLeg = ({
     mirrorY
 }: SpiderLegProps) => {
 
-    function calcMirror() {
-
-        return `${mirrorY ? "scaleY(-1)" : ""} ${mirrorX ? "scaleX(-1)" : ""}`;
-    }
     return (
         <div style={{
             color: colour,
             clipPath: "polygon(25% 0%, 28% 2%, 54% 49%, 48% 78%, 25% 100%, 41% 62%)",
             rotate: `${rotation}`,
-            transform: calcMirror()
+            transform: calcMirror(mirrorX, mirrorY)
         }}>
 
         </div>
