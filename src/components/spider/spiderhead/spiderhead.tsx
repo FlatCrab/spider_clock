@@ -1,21 +1,31 @@
 import { calcMirror } from "../../../util/styleutil";
 
 interface SpiderHeadProps {
-    colour: string,
-    rotation: number,
-    mirrorX: boolean,
-    mirrorY: boolean,
+    colour?: string;
+    rotation?: number;
+    mirrorX?: boolean;
+    mirrorY?: boolean;
 }
 
-const SpiderHead = ({ colour, rotation, mirrorX, mirrorY }: SpiderHeadProps) => {
+const SpiderHead = ({
+    colour = "white",
+    rotation = 0,
+    mirrorX = false,
+    mirrorY = false,
+}: SpiderHeadProps) => {
     return (
-        <div style={{
-            color: colour,
-            clipPath: "polygon(50% 0%,80% 10%,95% 30%,85% 55%,70% 70%,60% 90%,50% 80%,40% 90%, 30% 70%, 15% 55%, 5% 30%, 20% 10% );",
-            rotate: `${rotation}`,
-            transform: calcMirror(mirrorX, mirrorY)
-        }}>
-        </div>
+        <div
+            style={{
+                backgroundColor: colour,
+                clipPath:
+                    "polygon(50% 0%,80% 10%,95% 30%,85% 55%,70% 70%,60% 90%,50% 80%,40% 90%,30% 70%,15% 55%,5% 30%,20% 10%)",
+                transform: `${calcMirror(mirrorX, mirrorY)} rotate(${rotation}deg)`,
+                width: "60px",
+                height: "60px",
+            }}
+            className="relative"
+        ></div>
     );
 };
+
 export { SpiderHead };
