@@ -1,17 +1,15 @@
-import { useState } from "react";
-
-interface SpiderLegProps {
+interface SpiderbodyProps {
     colour: string,
     rotation: number,
     mirrorX: boolean,
     mirrorY: boolean,
 };
-const SpiderLeg = ({
+const Spiderbody = ({
     colour,
     rotation,
     mirrorX,
     mirrorY
-}: SpiderLegProps) => {
+}: SpiderbodyProps) => {
 
     function calcMirror() {
 
@@ -20,7 +18,7 @@ const SpiderLeg = ({
     return (
         <div style={{
             color: colour,
-            clipPath: "polygon(25% 0%, 28% 2%, 54% 49%, 48% 78%, 25% 100%, 41% 62%)",
+            clipPath: "clip-path: ellipse(36% 47% at 50% 50%)",
             rotate: `${rotation}`,
             transform: calcMirror()
         }}>
@@ -28,4 +26,4 @@ const SpiderLeg = ({
         </div>
     );
 };
-export { SpiderLeg };
+export { Spiderbody };
