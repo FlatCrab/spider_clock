@@ -5,6 +5,8 @@ interface SpiderBodyProps {
     rotation?: number;
     mirrorX?: boolean;
     mirrorY?: boolean;
+    width?: number;
+    height?: number;
 }
 
 const SpiderBody = ({
@@ -12,6 +14,8 @@ const SpiderBody = ({
     rotation = 0,
     mirrorX = false,
     mirrorY = false,
+    width = 100,
+    height = 100,
 }: SpiderBodyProps) => {
     return (
         <div
@@ -19,8 +23,8 @@ const SpiderBody = ({
                 backgroundColor: colour,
                 clipPath: "ellipse(36% 47% at 50% 50%)",
                 transform: `${calcMirror(mirrorX, mirrorY)} rotate(${rotation}deg)`,
-                width: "100px",
-                height: "100px",
+                width: `${width}px`,
+                height: `${height}px`,
             }}
             className="relative"
         ></div>
